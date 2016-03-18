@@ -26,11 +26,13 @@
 import time
 import subprocess
 
+reg = "t411"
+
 def main():
 
     try:
         commandResult = subprocess.check_output(["transmission-remote","--auth=transmission:transmission", "-l"])
-    except CalledProcessError:
+    except subprocess.CalledProcessError:
         dateAndTime = time.strftime("%H:%M:%S") + " " + time.strftime("%d/%m/%Y")
         print(dateAndTime + " ERROR: something went wrong checking the torrents listing.") 
         return -1
